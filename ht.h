@@ -312,7 +312,11 @@ HashTable<K,V,Prober,Hash,KEqual>::HashTable(
 template<typename K, typename V, typename Prober, typename Hash, typename KEqual>
 HashTable<K,V,Prober,Hash,KEqual>::~HashTable()
 {
-
+    for(int i = 0; i < table_.size(); ++i){
+        if(table_.at(i) != nullptr){
+            delete table_.at(i);
+        }
+    }
 }
 
 // To be completed
